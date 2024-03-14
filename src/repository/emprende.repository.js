@@ -23,6 +23,20 @@ class EmprendeRepository{
         }
     }
 
+    static async getAllEmprende(){
+        const params = {
+            TableName: EMPRENDE_FERIA_TABLE
+        };
+
+        try {
+            const { Items } = await dynamodbDbClient.send(new ScanCommand(params));
+            return Items;
+          } catch (error) {
+            console.error(error);
+            throw new Error("Could not retrieve all startups");
+          }
+    }
+
     static async createEmprendes(name, urlWeb, direccion, etiquetas, telefonos, imageUrl, latitud, longitud, email, description ){
         const emprendeId = uuidv4();
         

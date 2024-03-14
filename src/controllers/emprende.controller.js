@@ -12,6 +12,15 @@ const getEmprendeById = async (req, res) =>{
     }
 }
 
+const getEmprendes = async (req, res)=>{
+    try {
+        const emprendimientos = await EmprendeService.getEmprendes();
+        res.json(emprendimientos)
+    } catch (error) {
+        res.status(500).json({error: error.message})
+    }
+}
+
 const createEmprende = async (req, res) =>{
     try {
         const {name, urlWeb, direccion, etiquetas, telefonos, imageUrl, latitud, longitud, email, description} = req.body;
@@ -24,4 +33,4 @@ const createEmprende = async (req, res) =>{
     }
 }
 
-module.exports = {getEmprendeById, createEmprende}
+module.exports = {getEmprendeById, createEmprende, getEmprendes}

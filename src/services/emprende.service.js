@@ -15,6 +15,19 @@ class EmprendeService{
         }
     }
 
+    static async getEmprendes(){
+        try {
+            const startups = await EmprendeRepository.getAllEmprende();
+            if (startups) {
+              return {startups};
+            } else {
+              throw Boom.notFound('Emprendimientos no encontrados');
+            }
+          } catch (error) {
+            throw error;
+          }
+    }
+
     static async createEmprende(
         name,
         urlWeb, 
