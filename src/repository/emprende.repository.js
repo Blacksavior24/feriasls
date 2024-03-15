@@ -37,7 +37,7 @@ class EmprendeRepository{
           }
     }
 
-    static async createEmprendes(name, urlWeb, direccion, etiquetas, telefonos, imageUrl, latitud, longitud, email, description ){
+    static async createEmprendes(name, urlWeb, direccion, etiquetas, telefonos, imageUrl, latitud, longitud, email, description, verificado, activado,razonsolicitud ){
         const emprendeId = uuidv4();
         
         const params = {
@@ -55,6 +55,9 @@ class EmprendeRepository{
                 latitud: latitud,
                 longitud: longitud,
                 active: true,
+                verificado: verificado?verificado:false, 
+                activado: activado?activado:false,
+                razonsolicitud: razonsolicitud,
                 createDate: Date(),
                 updateDate: null,
                 deleteDate: null
@@ -75,6 +78,7 @@ class EmprendeRepository{
                 description,
                 latitud,
                 longitud,
+                verificado, activado, razonsolicitud
             }
         } catch (error) {
             console.error(error)

@@ -23,9 +23,9 @@ const getEmprendes = async (req, res)=>{
 
 const createEmprende = async (req, res) =>{
     try {
-        const {name, urlWeb, direccion, etiquetas, telefonos, imageUrl, latitud, longitud, email, description} = req.body;
+        const {name, urlWeb, direccion, etiquetas, telefonos, imageUrl, latitud, longitud, email, description, verificado, activado, razonsolicitud} = req.body;
 
-        const newEmprende = await EmprendeService.createEmprende(name, urlWeb, direccion, etiquetas, telefonos, imageUrl, latitud, longitud, email, description)
+        const newEmprende = await EmprendeService.createEmprende(name, urlWeb, direccion, etiquetas, telefonos, imageUrl, latitud, longitud, email, description, verificado, activado,razonsolicitud)
 
         res.json(newEmprende)
     } catch (error) {

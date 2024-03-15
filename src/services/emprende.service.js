@@ -38,7 +38,10 @@ class EmprendeService{
         latitud, 
         longitud, 
         email, 
-        description
+        description,
+        verificado, 
+        activado,
+        razonsolicitud
     ){
         try {  
 
@@ -52,7 +55,8 @@ class EmprendeService{
                 latitud,
                 longitud,
                 email,
-                description
+                description,
+                verificado, activado,razonsolicitud
             )
         } catch (error) {
             throw error;
